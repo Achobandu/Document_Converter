@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333333;
+        }
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+        input[type="submit"], button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <!-- <img src="converter-icon.png" alt="Converter Icon" width="100">-->
+        <h1>Document Converter</h1>
+        <form action="/convert" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".docx, .pdf, .doc"><br>
+            <input type="submit" value="Convert">
+        </form>
+
+        {% if converted_file %}
+            <p>Conversion successful!</p>
+            <a href="{{ url_for('download', filename=converted_file) }}" download>
+                <button>Download Converted File</button>
+            </a>
+        {% endif %}
+    </div>
+</body>
+</html>
