@@ -12,7 +12,7 @@ A straightforward web application that converts PDF files to DOCX and vice versa
 
 ## Technologies Used
 
-- Backend: Python 3.x
+- Backend: Python 3.12
 - Frontend: HTML, CSS
 - Web Framework: Flask
 - File Conversion Libraries: 
